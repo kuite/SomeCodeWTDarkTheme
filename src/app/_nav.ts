@@ -24,7 +24,7 @@ export const navItems = [
   },
   {
     title: true,
-    name: 'Components'
+    name: 'Components3'
   },
   {
     name: 'Base',
