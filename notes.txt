@@ -1,0 +1,40 @@
+Domeny:
+yougetpaid
+andgetpaid
+
+
+1 tworzenie zakladow podczas streamów z gier (grasz np. na lichess, wystawiasz zaklady np. czy wygram dzis 10 bulletow i widzowie moga to obstawiac a dla usera caly dochod)
+osadzenie streama +50% zarobku
+administrator moderuje (dodaje zaklady). Administratorem z defaultu jest twórca
+kursy zmieniają sie w czasie
+domyslnie zaklad mozna grac 15 minut 
+"create your own event and let friends bet 'I will drink 10 beers tonight'. Then share it on insta or facebook -and get paid*"
+"'I will win 10 bullet games (or cs go, or minecraft, or LOL, or any game tonight)'. Play on the stream and let viewers gamble -and get paid*."
+"Are you a streamer? Play with viewers -and get paid*"
+
+
+2 dodac tworzenie wyzwan czyli zakladasz sie o 500zl (ty 500 pobrane z konta ze wygrasz w taką i aką gre). Czekasz az ktos zaakceptuje i na wlasna reke sie komunikujecie np. kazdy podaje login whatsappa
+Wyzywasz innego gracza dodając streama. Wygrany ma obowiazek rozliczyc zaklad. Admin wygrywa zaklad i część kasy od publiczności.
+
+
+
+3 normalny bukmacher (najpopularniejsze e-gry i popularne dwu-trzy drogowe wydarzenia)
+Interfejs kopią jakiegos popularnego
+
+
+Nawigacja gora strony, kazdy el menu jest opisany na srodku strony w kafelkach
+
+
+- potem wysylasz to do pato-streamerow (daje im obstawiac, grac w tibie/gowno-gry i obstawiac)
+- nastepnie pokazuje to potencjalnym sponsorom (banery w grach, nagrody rzeczowe)
+- program ktory z automatu zczytuje dane z gry do ligi/wyzwan
+- co miesiac koniec kazdej ligii i co miesiac inna liga jest sponsorowana ($$) 
+- gry (jedno-reki bandyci, kosci, poker 1v1 cash) - osobna platforma dedykowana
+
+
+
+
+Grupy docelowe:
+http://speedgaming.org/events/
+lichess
+europa universalis

@@ -221,11 +221,5 @@ export const navItems = [
     icon: 'icon-cloud-download',
     class: 'mt-auto',
     variant: 'success'
-  },
-  {
-    name: 'Try CoreUI PRO',
-    url: 'http://coreui.io/pro/angular/',
-    icon: 'icon-layers',
-    variant: 'danger'
   }
 ];
