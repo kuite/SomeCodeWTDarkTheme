@@ -1,6 +1,24 @@
 Domeny:
 yougetpaid
 andgetpaid
+custombets
+custombetting
+socialbetting
+socialbets
+socialgaming
+youbets
+youbet
+yourbets
+youbets
+customchallenges
+custombets
+custombetting
+gamblesportleague
+friendlychallenges
+friendlygaming
+okbets
+warmbets
+
 
 
 1 tworzenie zakladow podczas streamów z gier (grasz np. na lichess, wystawiasz zaklady np. czy wygram dzis 10 bulletow i widzowie moga to obstawiac a dla usera caly dochod)
@@ -8,12 +26,15 @@ osadzenie streama +50% zarobku
 administrator moderuje (dodaje zaklady). Administratorem z defaultu jest twórca
 kursy zmieniają sie w czasie
 domyslnie zaklad mozna grac 15 minut 
-"create your own event and let friends bet 'I will drink 10 beers tonight'. Then share it on insta or facebook -and get paid*"
+
+"play your favourite games for money"
+"place where you are bookmaker"
+"create your own event 'I will drink 10 beers tonight' and let friends bet. Then share it on insta or facebook -and get paid*"
 "'I will win 10 bullet games (or cs go, or minecraft, or LOL, or any game tonight)'. Play on the stream and let viewers gamble -and get paid*."
 "Are you a streamer? Play with viewers -and get paid*"
 
 
-2 dodac tworzenie wyzwan czyli zakladasz sie o 500zl (ty 500 pobrane z konta ze wygrasz w taką i aką gre). Czekasz az ktos zaakceptuje i na wlasna reke sie komunikujecie np. kazdy podaje login whatsappa
+2 dodac tworzenie wyzwan czyli zakladasz sie o 500zl (ty 500 pobrane z konta ze wygrasz w taką i taką gre). Czekasz az ktos zaakceptuje i na wlasna reke sie komunikujecie np. kazdy podaje login whatsappa/czegokolwiek
 Wyzywasz innego gracza dodając streama. Wygrany ma obowiazek rozliczyc zaklad. Admin wygrywa zaklad i część kasy od publiczności.
 
 
@@ -22,19 +43,87 @@ Wyzywasz innego gracza dodając streama. Wygrany ma obowiazek rozliczyc zaklad. 
 Interfejs kopią jakiegos popularnego
 
 
+
+4 Konto administratora do rozliczania spornych zakladow (dla pracownikow)
+
 Nawigacja gora strony, kazdy el menu jest opisany na srodku strony w kafelkach
 
 
-- potem wysylasz to do pato-streamerow (daje im obstawiac, grac w tibie/gowno-gry i obstawiac)
+Jak rozwijac:
+- koncept playmoney -> tokeny (tylko poprzez turnieje/gry/loterie)
+- playmoney zamieniane na skorki/jakis item ktory dostawałbym od graczy/itemy w shopie
+- potem wysylasz to do pato-streamerow (daje im obstawiac, grac w tibie/gowno-gry i tworzyc wyzwania dla widzow)
+- trackowanie uzytkownikow, w co klikaja, kiedy wychodza itd
 - nastepnie pokazuje to potencjalnym sponsorom (banery w grach, nagrody rzeczowe)
 - program ktory z automatu zczytuje dane z gry do ligi/wyzwan
 - co miesiac koniec kazdej ligii i co miesiac inna liga jest sponsorowana ($$) 
-- gry (jedno-reki bandyci, kosci, poker 1v1 cash) - osobna platforma dedykowana
+- gry 1-p (jedno-reki bandyci, kosci, ruletka) - osobna platforma dedykowana (?)
+- gry 1v1 (poker cash, papier kamien)
+- market (skorki, gold - jak tutaj zrobic escrow, kryptowaluty)
 
 
 
+Konkurencja:
+https://pvp.me/terms - betting streams
+https://www.worldwinner.com/ - grasz w ich gry o pieniadze
 
-Grupy docelowe:
+MARKETING Grupy docelowe:
+https://news.ycombinator.com/item?id=17690852 - watek z niszowymi grupami spole
 http://speedgaming.org/events/
 lichess
 europa universalis
+
+
+Przydatne linki:
+https://www.boxcast.com/blog/how-to-embed-a-live-stream-on-your-website
+Sprobowac ktoras transmisje 24/7 z yt zrobic embedded
+
+https://www.youtube.com/watch?v=TaoQWFtN0Gc - przykladowa transmisja z quake3 league
+
+https://www.coinpayments.net/apidoc-create-transaction - platnosci
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Myślę, że będzie ciężko biorąc pod uwagę czym jest DDD. Większość pracy w DDD jest poza kodem. Podstawa, to posiadanie w zespole eksperta domenowego, który niekoniecznie wie cokolwiek o programowaniu, dalej tworzysz tzw Ubiquitous Languag, czyli definiujesz z całym zespołem (nie tylko dev), język którym się wszyscy będą posługiwać w taki sposób, aby nie było niedomówień i nieporozumień. Dalej zaczyna się tworzenie logiki biznesowej "na sucho", i na koniec dopiero implementacja.
+
+Poza tym DDD powinno się stosować do większych projektów, żeby to miało sens. Częsty błąd to wyznaczanie zbyt małych bounded contextów na zasadzie "bo jakieś trzeba zrobić", a tak na prawdę cały projekt jest jednym kontekstem. Skutkiem tego błędu jest to, że są one i tak ze sobą mocno powiązane.
+
+W związku z powyższym ciężko o dobre przykładowe projekty, bo przykłady z definicji są małe.
+
+aplikacji n-layer (nie chce porywać się odrazu na CQS) pisanej metodą DDD.
+
+W takiej aplikacji całe to typowe DDD, to tylko jedna z warstw. Ja lubię podejście w którym wyróżniamy warstwy:
+
+- Domain - czysta logika biznesowa oderwana od infrastruktury i rodzaju klienta.
+- Application - połączenie domeny z UI + implementacje interfejsów domenowych, infrastruktury i innych
+- UI - zwykle MVC (tak, MVC, to wzorzec UI, a nie całej aplikacji)
+
+- Infrastruktura - trochę na boku. Nie jest to typowa warstwa pod, lub nad poprzednimi. Do tej warstwy należą np. ORM
+
+I tak na przykład w warstwie Domain masz interfejs jakiejś usługi, powiedzmy UserRepositoryInterface (tylko interfejs, bo domena jest oderwana od infrastruktury), w warstwie Application implementujesz pod konkretną bazę danych, żeby tę implementację wstrzyknąć gdzie trzeba do obiektów domenowych. 
+
+W warstwie Application można też sobie zaimplementować np. CommandBusa lub coś podobnego. Podczas gdy domena to czyste obiekty reprezentujące logikę biznesową "niskopoziomowo", to takie Commandy mogą reprezentować scenariusze użycia domeny. W UI zostaje np. obsłużenie requestu HTTP i wywołanie Commanda, czyli przekazanie workflow do kolejnej warstwy.

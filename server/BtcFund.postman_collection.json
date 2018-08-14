@@ -1,0 +1,115 @@
+{
+	"variables": [],
+	"info": {
+		"name": "BtcFund",
+		"_postman_id": "4b707715-935f-18a4-6834-c26822230655",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:5000/fund/SubmitFundImages",
+			"request": {
+				"url": "http://localhost:5000/fund/SubmitFundImages",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhc2Rhc2RAd3AucGwiLCJqdGkiOiIxZjJjMzc2MC0zYzdiLTRhN2MtODUzZS0wOWYyYTM1OTJlYzMiLCJpYXQiOjE1MzI2NDM1MjgsInJvbCI6ImFwaV9hY2Nlc3MiLCJpZCI6IjFmY2IyMDAzLWI2OTctNDdlZC05OWEwLWU3NDc5NzQ1MDEyZiIsIm5iZiI6MTUzMjY0MzUyNywiZXhwIjoxNTMyNjY1MTI3LCJpc3MiOiJ3ZWJBcGkiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvIn0.xDw78_lkAPsglHTktSyunUeivnffpwBU2kl1tYrwSVc",
+						"description": " Bearer "
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "imgs",
+							"value": "",
+							"description": "",
+							"type": "file"
+						},
+						{
+							"key": "imgs",
+							"value": "",
+							"description": "",
+							"type": "file"
+						},
+						{
+							"key": "fundGuid",
+							"value": "a6adeebe-e907-4a14-ba66-d3b394df8050",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/fund/submitfund\n",
+			"request": {
+				"url": "http://localhost:5000/fund/submitfund\n",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhc2Rhc2RAd3AucGwiLCJqdGkiOiIxZjJjMzc2MC0zYzdiLTRhN2MtODUzZS0wOWYyYTM1OTJlYzMiLCJpYXQiOjE1MzI2NDM1MjgsInJvbCI6ImFwaV9hY2Nlc3MiLCJpZCI6IjFmY2IyMDAzLWI2OTctNDdlZC05OWEwLWU3NDc5NzQ1MDEyZiIsIm5iZiI6MTUzMjY0MzUyNywiZXhwIjoxNTMyNjY1MTI3LCJpc3MiOiJ3ZWJBcGkiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvIn0.xDw78_lkAPsglHTktSyunUeivnffpwBU2kl1tYrwSVc",
+						"description": " Bearer "
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"asdasdsad\",\n    \"description\": \"asd\",\n    \"btcGoal\": 2,\n    \"btcDonated\": 1,\n    \"startDate\": \"0001-01-01T00:00:00+00:00\",\n    \"endDate\": \"0001-01-01T00:00:00+00:00\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/account/login",
+			"request": {
+				"url": "http://localhost:5000/account/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\tEmail : \"asdasd@wp.pl\",\n\tPassword : \"qwerty\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/account/RegisterUser",
+			"request": {
+				"url": "http://localhost:5000/account/RegisterUser",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\tFirstName : \"jan\",\n\tLastName : \"kow4545al\",\n\tEmail : \"asdasd@wp.pl\",\n\tPassword : \"qwerty\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

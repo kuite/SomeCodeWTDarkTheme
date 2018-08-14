@@ -1,0 +1,5 @@
+-If need clean migrations:
+dotnet ef migrations add Initial -o Model\Database\Migrations
+
+-After every migration:
+dotnet ef database update
