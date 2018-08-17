@@ -58,5 +58,12 @@ namespace webapi.Controllers
         {
             return Ok(postedString);
         }
+        
+        [HttpGet("servertext")]
+        [ValidateModel]
+        public async Task<string> Login4()
+        {
+            return "zwrocony string z servera";
+        }
     }
 }

@@ -1,0 +1,62 @@
+<button hidden="true" data-toggle="modal" (click)="loginUserModal.show()"></button>
+<div bsModal #loginUserModal="bs-modal" tabindex="-1" class="modal fade" role="dialog" aria-labelledby="loginUserModalLabel"
+  aria-hidden="false">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Login</h3>
+        <button type="button" class="close" (click)="loginUserModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="card-body p-4">
+        <p class="text-muted">Sign In to your account</p>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="icon-user"></i>
+            </span>
+          </div>
+          <input type="text" class="form-control" placeholder="Username">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="icon-lock"></i>
+            </span>
+          </div>
+          <input type="password" class="form-control" placeholder="Password">
+        </div>
+        <button type="button" class="btn btn-large btn-success" (click)="loginUser()">Login</button>
+        <span style="padding: 8px;">Forget password?</span>
+      </div>
+      <div class="card-footer p-4">
+        <div class="row">
+          <div class="col-4">
+            <button class="btn btn-brand btn-lg btn-facebook" style="margin-bottom: 4px" type="button">
+              <i class="fa fa-facebook"></i>
+              <span>Facebook</span>
+            </button>
+          </div>
+          <div class="col-4">
+            <button class="btn btn-brand btn-lg btn-youtube" style="margin-bottom: 4px" type="button">
+              <i class="fa fa-youtube"></i>
+              <span>Youtube</span>
+            </button>
+          </div>
+          <div class="col-4">
+            <button class="btn btn-brand btn-lg btn-google-plus" style="margin-bottom: 4px" type="button">
+              <i class="fa fa-google-plus"></i>
+              <span>Google+</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

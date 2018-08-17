@@ -2,11 +2,11 @@ import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
 import { AccountService } from '../../services/account-service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: 'login.component.html',
-  styleUrls: ['login.component.scss']
+  selector: 'login-modal',
+  templateUrl: 'login-modal.component.html'
 })
-export class LoginComponent implements OnInit, AfterViewInit {
+
+export class LoginModalComponent implements OnInit, AfterViewInit {
   public loginUserModal;
 
   constructor(private _rootNode: ElementRef, private accountService: AccountService) { }

@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 // Modal Component
 import { ModalModule } from 'ngx-bootstrap/modal';
 
-
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
@@ -16,15 +15,13 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 };
 
 import { AppComponent } from './app.component';
-
 // Import containers
 import { DefaultLayoutComponent } from './containers';
-
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
-import { RegisterModalComponent } from './views/register-modal/register-modal.component';
+
 
 const APP_CONTAINERS = [
   DefaultLayoutComponent
@@ -45,6 +42,10 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
+
+import { RegisterModalComponent } from './views/register-modal/register-modal.component';
+import { LoginModalComponent } from './views/login-modal/login-modal.component';
+import { HeaderComponent } from './views/header/header.component';
 
 @NgModule({
   imports: [
@@ -70,6 +71,8 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     LoginComponent,
     RegisterComponent,
     RegisterModalComponent,
+    LoginModalComponent,
+    HeaderComponent,
   ],
   providers: [{
     provide: LocationStrategy,

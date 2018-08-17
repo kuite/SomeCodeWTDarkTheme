@@ -6,7 +6,6 @@ import { DefaultLayoutComponent } from './containers';
 
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
-import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 
 
@@ -30,13 +29,13 @@ export const routes: Routes = [
       title: 'Page 500'
     }
   },
-  {
-    path: 'login',
-    component: LoginComponent,
-    data: {
-      title: 'Login Page'
-    }
-  },
+  // {
+  //   path: 'login',
+  //   component: LoginComponent,
+  //   data: {
+  //     title: 'Login Page'
+  //   }
+  // },
   {
     path: 'register',
     component: RegisterComponent,
@@ -56,6 +55,10 @@ export const routes: Routes = [
         loadChildren: './views/base/base.module#BaseModule'
       },
       {
+        path: 'login',
+        loadChildren: './views/login/login.module#LoginModule'
+      },
+      {
         path: 'buttons',
         loadChildren: './views/buttons/buttons.module#ButtonsModule'
       },
@@ -68,8 +71,20 @@ export const routes: Routes = [
         loadChildren: './views/home/home.module#HomeModule'
       },
       {
-        path: 'betting-stream',
+        path: 'betting-streams',
         loadChildren: './views/betting-streams/betting-streams.module#BettingStreamsModule'
+      },
+      {
+        path: 'games',
+        loadChildren: './views/games/games.module#GamesModule'
+      },
+      {
+        path: 'challenges',
+        loadChildren: './views/challenges/challenges.module#ChallengesModule'
+      },
+      {
+        path: 'betting',
+        loadChildren: './views/betting/betting.module#BettingModule'
       },
       {
         path: 'dashboard',

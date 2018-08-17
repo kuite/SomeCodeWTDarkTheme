@@ -10,6 +10,15 @@
                 "${workspaceFolder}/server/webapi.csproj"
             ],
             "problemMatcher": "$msCompile"
-        }
+        },
+        {
+            "label": "build client",
+            "command": "start ${workspaceFolder}/client/build_client.bat",
+            "type": "shell",
+            "args": [
+                "${workspaceFolder}"
+            ],
+            "problemMatcher": "$msCompile"
+        },
     ]
 }
