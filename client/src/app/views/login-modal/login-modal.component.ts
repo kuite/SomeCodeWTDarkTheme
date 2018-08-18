@@ -17,27 +17,24 @@ export class LoginModalComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     console.log('LoginModalComponent ngOnInit');
-    this.subscription = this.loginModalService.showObservable$.subscribe(data => { this.showButton.click(); });
   }
 
   ngAfterViewInit() {
-    this.showButton = this._rootNode.nativeElement.children[0];
-    this.loginUserModal = this._rootNode.nativeElement.children[1];
-  }
+    let showButton = this._rootNode.nativeElement.children[0];
+    let loginUserModal = this._rootNode.nativeElement.children[1];
 
-  showModal(){
-    console.log('LoginModalComponent.showModal');
-    //this.subscription = this.loginModalService.showObservable$.subscribe(data => { this.showButton.click(); });
-    //this.showButton.click();
-  }
-
-  onNewValue(val) {
-    console.log(val);
+    this.subscription = this.loginModalService.showObservable$.subscribe(() => { showButton.click(); });
   }
 
   login(): string{
     let token = this.accountService.login();
-    console.log(token);
+    console.log('login: ' + token);
     return token;
+  }
+
+  ngOnDestroy() {
+    // prevent memory leak when component destroyed
+    console.log('LoginModalComponent ngOnDestroy');
+    this.subscription.unsubscribe();
   }
 }

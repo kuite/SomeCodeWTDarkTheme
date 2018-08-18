@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginModalService } from '../login-modal/login-modal.service';
+import { RegisterModalService } from '../register-modal/register-modal.service';
 
 @Component({
   selector: 'my-header',
@@ -9,7 +10,7 @@ import { LoginModalService } from '../login-modal/login-modal.service';
 export class HeaderComponent implements OnInit {
 
 
-  constructor(private loginModalService: LoginModalService) { }
+  constructor(private loginModalService: LoginModalService, private registerModalService: RegisterModalService) { }
 
   ngOnInit() {
   }
@@ -17,8 +18,11 @@ export class HeaderComponent implements OnInit {
   showLoginModal(){
     console.log('skowLoginModal');
     this.loginModalService.show();
-    //this.loginModalComponent.showModal();
-    
+  }
+
+  showRegisterModal(){
+    console.log('showRegisterModal');
+    this.registerModalService.show();
   }
 
 }
