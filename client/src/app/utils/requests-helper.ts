@@ -8,8 +8,6 @@ import { environment } from '../../environments/environment';
 })
 export class RequestsHelper {
 
-    loginUrl = "chuj";
-
     constructor(private http: HttpClient) { }
 
     get(url): any {
@@ -22,19 +20,19 @@ export class RequestsHelper {
         return request;
     }
 
-    login(): string {
-        let login = "username";
-        let password = "password";
-        let token = "";
+    // login(): string {
+    //     let login = "username";
+    //     let password = "password";
+    //     let token = "";
 
-        let loginRequest = this.http.get(this.loginUrl, { responseType: 'text' });
+    //     let loginRequest = this.http.get(this.loginUrl, { responseType: 'text' });
 
-        loginRequest.subscribe((data: any) => {
-            token = data;
-            console.log(data);
-        });
+    //     loginRequest.subscribe((data: any) => {
+    //         token = data;
+    //         console.log(data);
+    //     });
 
-        return "oddaje tokena"
-    }
+    //     return "oddaje tokena"
+    // }
 
 }

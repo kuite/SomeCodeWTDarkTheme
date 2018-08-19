@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
-import { AccountService } from '../../services/account-service';
+import { AuthService } from '../../services/auth-service';
 import { LoginModalService } from './login-modal.service';
 import { Subscription }   from 'rxjs';
 
@@ -13,7 +13,7 @@ export class LoginModalComponent implements OnInit, AfterViewInit {
   public showButton;
   subscription: Subscription;
   
-  constructor(private _rootNode: ElementRef, private accountService: AccountService, private loginModalService: LoginModalService) { }
+  constructor(private _rootNode: ElementRef, private accountService: AuthService, private loginModalService: LoginModalService) { }
 
   ngOnInit() {
     console.log('LoginModalComponent ngOnInit');

@@ -6,11 +6,11 @@ import { RequestsHelper } from '../utils/requests-helper'
 @Injectable({
   providedIn: 'root',
 })
-export class AccountService {
+export class AuthService {
 
   public IsLogged = false;
 
-  private loginUrl = "/account/login2";
+  private loginUrl = "/account/login";
   private regUrl = "/account/RegisterUser"
 
   constructor(private http: HttpClient, private requests: RequestsHelper) { }
@@ -37,18 +37,28 @@ export class AccountService {
   }
 
   login(): string {
-    let login = "username";
-    let password = "password";
+    let login = "asdasd2@wp.pl";
+    let password = "qwerty";
+    let loginVm = {
+        Email: login,
+        Password: password
+    };
     let token = "";
 
-    let request = this.requests.get(this.loginUrl);
+    let request = this.requests.post(this.loginUrl, loginVm);
 
     request.subscribe((data: any) => {
       token = data;
+      console.log("accountSvc.request.subscribe");
       console.log(data);
     });
 
+    console.log("accountSvc.login");
     return "oddaje tokena"
+  }
+
+  logout(){
+
   }
 
 }
