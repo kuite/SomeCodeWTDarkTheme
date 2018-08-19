@@ -19,7 +19,6 @@ import { AppComponent } from './app.component';
 import { DefaultLayoutComponent } from './containers';
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
-import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 
 
@@ -68,7 +67,6 @@ import { HeaderComponent } from './views/header/header.component';
     ...APP_CONTAINERS,
     P404Component,
     P500Component,
-    LoginComponent,
     RegisterComponent,
     RegisterModalComponent,
     LoginModalComponent,

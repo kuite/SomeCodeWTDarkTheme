@@ -39,9 +39,18 @@ namespace webapi.Controllers
         [ValidateModel]
         public async Task<IActionResult> Login([FromBody]LoginForm credentials)
         {
-            string token = await _userService.GetTokenAsync(credentials);
+            Thread.Sleep(2000);
+            string response;
+            try
+            {
+                response = await _userService.GetTokenAsync(credentials);
+            }
+            catch(Exception ex)
+            {
+                return new BadRequestObjectResult(new ApiError(ex.Message));
+            }
 
-            return Ok(token);
+            return Ok(response);
             //expires_in in [s]
         }
 

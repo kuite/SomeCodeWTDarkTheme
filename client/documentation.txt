@@ -11,3 +11,10 @@ we use sass for CSS
 
 3. login wth facebook
 https://developers.facebook.com/
+
+
+
+
+
+angular tips:
+https://stackoverflow.com/questions/35359358/angular-2-change-event-on-every-keypress

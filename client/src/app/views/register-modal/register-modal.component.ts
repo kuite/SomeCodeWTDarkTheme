@@ -30,12 +30,6 @@ export class RegisterModalComponent implements OnInit, AfterViewInit {
     showButton.click();
   }
 
-  login(): string{
-    let token = this.authService.login();
-    console.log(token);
-    return token;
-  }
-
   registerUser( $event ) {
     //this.reg-modal.hide();
     let msg = this.authService.registerUser();

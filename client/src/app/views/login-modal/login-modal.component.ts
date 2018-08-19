@@ -11,9 +11,9 @@ import { Subscription }   from 'rxjs';
 export class LoginModalComponent implements OnInit, AfterViewInit {
   public loginUserModal;
   public showButton;
-  subscription: Subscription;
+  showModalSub: Subscription;
   
-  constructor(private _rootNode: ElementRef, private accountService: AuthService, private loginModalService: LoginModalService) { }
+  constructor(private _rootNode: ElementRef, private authService: AuthService, private loginModalService: LoginModalService) { }
 
   ngOnInit() {
     console.log('LoginModalComponent ngOnInit');
@@ -23,18 +23,26 @@ export class LoginModalComponent implements OnInit, AfterViewInit {
     let showButton = this._rootNode.nativeElement.children[0];
     let loginUserModal = this._rootNode.nativeElement.children[1];
 
-    this.subscription = this.loginModalService.showObservable$.subscribe(() => { showButton.click(); });
+    this.showModalSub = this.loginModalService.showObservable$.subscribe(() => { showButton.click(); });
   }
 
-  login(): string{
-    let token = this.accountService.login();
-    console.log('login: ' + token);
-    return token;
+  login(){
+    //show loading 
+    console.log('login-modal.component login');
+    this.authService.login().subscribe((response) => { 
+        if (response == 'ok'){
+          //close modal
+          console.log(response);
+        }else{
+          //show error
+          console.log(response);
+        }
+     });
   }
 
   ngOnDestroy() {
     // prevent memory leak when component destroyed
     console.log('LoginModalComponent ngOnDestroy');
-    this.subscription.unsubscribe();
+    this.showModalSub.unsubscribe();
   }
 }

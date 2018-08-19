@@ -23,14 +23,18 @@
       <a class="nav-link" href="#/games">games</a>
     </li>
   </ul>
-  <ul class="nav navbar-nav ml-auto ">
-    <i class="fa fa-moon-o fa-lg mt-4"></i>
-    <i class="fa fa-bell-o fa-lg mt-4"></i>
-    <div class="nav-item px-3">
-      <button class="btn btn-block btn-outline-primary" data-toggle="modal" type="button" (click)="showRegisterModal()"> Join now </button>
+  <ul class="nav navbar-nav ml-auto">
+    <div *ngIf="IsLogged" class="nav navbar-nav ml-auto">
+        <i class="fa fa-moon-o fa-lg mt-4"></i>
+        <i class="fa fa-bell-o fa-lg mt-4"></i>
     </div>
-    <div class="nav-item px-3">
-      <button class="btn btn-block btn-outline-primary" data-toggle="modal" (click)="showLoginModal()"> Login </button>
+    <div *ngIf="IsLogged == false" class="nav navbar-nav ml-auto">
+        <div class="nav-item px-3">
+            <button class="btn btn-block btn-outline-primary" data-toggle="modal" type="button" (click)="showRegisterModal()"> Join now </button>
+          </div>
+          <div class="nav-item px-3">
+            <button class="btn btn-block btn-outline-primary" data-toggle="modal" type="button" (click)="showLoginModal()"> Login </button>
+          </div>
     </div>
   </ul>
   <button appasidemenutoggler="" class="navbar-toggler d-lg-none" type="button" ng-reflect-breakpoint="">
