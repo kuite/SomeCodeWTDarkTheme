@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
-import { AccountService } from '../../services/account-service';
+import { AuthService } from '../../services/auth-service';
 import { RegisterModalService } from './register-modal.service';
 import { Subscription }   from 'rxjs';
 
@@ -12,7 +12,7 @@ export class RegisterModalComponent implements OnInit, AfterViewInit {
   public registerUserModal;
   subscription: Subscription;
   
-  constructor(private _rootNode: ElementRef, private accountService: AccountService, private registerModalService: RegisterModalService) { }
+  constructor(private _rootNode: ElementRef, private authService: AuthService, private registerModalService: RegisterModalService) { }
 
   ngOnInit() {
   }
@@ -31,14 +31,14 @@ export class RegisterModalComponent implements OnInit, AfterViewInit {
   }
 
   login(): string{
-    let token = this.accountService.login();
+    let token = this.authService.login();
     console.log(token);
     return token;
   }
 
   registerUser( $event ) {
     //this.reg-modal.hide();
-    let msg = this.accountService.registerUser();
+    let msg = this.authService.registerUser();
     console.log(msg);
   }
 

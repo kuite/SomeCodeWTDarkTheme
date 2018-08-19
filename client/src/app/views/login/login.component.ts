@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
-import { AccountService } from '../../services/account-service';
+import { AuthService } from '../../services/auth-service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +9,7 @@ import { AccountService } from '../../services/account-service';
 export class LoginComponent implements OnInit, AfterViewInit {
   public loginUserModal;
 
-  constructor(private _rootNode: ElementRef, private accountService: AccountService) { }
+  constructor(private _rootNode: ElementRef, private authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
   }
 
   login(): string{
-    let token = this.accountService.login();
+    let token = this.authService.login();
     console.log(token);
     return token;
   }
