@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 // Modal Component
 import { ModalModule } from 'ngx-bootstrap/modal';
@@ -60,7 +61,8 @@ import { HeaderComponent } from './views/header/header.component';
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule,
-    ModalModule
+    ModalModule,
+    FormsModule
   ],
   declarations: [
     AppComponent,

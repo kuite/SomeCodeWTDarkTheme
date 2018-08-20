@@ -17,23 +17,8 @@ export class RequestsHelper {
     }
 
     post(url, postObject): Observable<any> {
-        let request = this.http.post(environment.apiUrl + url, postObject, { responseType: 'text' });
+        let request = this.http.post(environment.apiUrl + url, postObject, { responseType: 'text' })
         return request;
     }
-
-    // login(): string {
-    //     let login = "username";
-    //     let password = "password";
-    //     let token = "";
-
-    //     let loginRequest = this.http.get(this.loginUrl, { responseType: 'text' });
-
-    //     loginRequest.subscribe((data: any) => {
-    //         token = data;
-    //         console.log(data);
-    //     });
-
-    //     return "oddaje tokena"
-    // }
 
 }

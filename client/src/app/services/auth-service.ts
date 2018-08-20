@@ -46,34 +46,28 @@ export class AuthService {
     return response;
   }
 
-  login(): Observable<string> {
+  login(username: string, password: string): Observable<string> {
     console.log("accountSvc.login start");
     return new Observable<string>((observer) => {
       console.log("accountSvc.login inside observable");
-      let login = "asdasd2@wp.pl";
-      let password = "qwerty2";
+      //let login = "asdasd2@wp.pl";
+      //let password = "qwerty2";
       let loginVm = {
-        Email: login,
+        Email: username,
         Password: password
       };
-      let token = "";
-
       let request = this.requests.post(this.loginUrl, loginVm);
-
 
       request.subscribe(
         (userData: any) => {
-          console.log("accountSvc.request.subscribe start");
           localStorage.setItem('userData', JSON.stringify(userData));
           this._isLogged = true;
           this._isLoggedSource.next();
-          console.log("accountSvc.request.subscribe end");
           observer.next('ok');
         },
         (err) => {
           observer.next(err.error)
         });
-      console.log("accountSvc.login end");
     });
   }
 

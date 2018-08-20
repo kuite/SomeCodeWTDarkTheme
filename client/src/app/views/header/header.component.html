@@ -25,16 +25,29 @@
   </ul>
   <ul class="nav navbar-nav ml-auto">
     <div *ngIf="IsLogged" class="nav navbar-nav ml-auto">
-        <i class="fa fa-moon-o fa-lg mt-4"></i>
-        <i class="fa fa-bell-o fa-lg mt-4"></i>
+      <button id="account-btn" class="button-header">
+        <i class="fa fa-moon-o fa-lg" style="padding: 8px;"></i>
+      </button>
+      <button id="bell-btn" class="button-header">
+        <i class="fa fa-bell-o fa-lg" style="position: center;"></i>
+      </button>
+      <button id="btn-acc" class="button-header">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M3 5v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.11 0-2 .9-2 2zm12 4c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3zm-9 8c0-2 4-3.1 6-3.1s6 1.1 6 3.1v1H6v-1z"
+          />
+          <path d="M0 0h24v24H0z" fill="none" />
+        </svg>
+      </button>
     </div>
     <div *ngIf="IsLogged == false" class="nav navbar-nav ml-auto">
-        <div class="nav-item px-3">
-            <button class="btn btn-block btn-outline-primary" data-toggle="modal" type="button" (click)="showRegisterModal()"> Join now </button>
-          </div>
-          <div class="nav-item px-3">
-            <button class="btn btn-block btn-outline-primary" data-toggle="modal" type="button" (click)="showLoginModal()"> Login </button>
-          </div>
+      <div class="nav-item px-3">
+        <button class="btn btn-block btn-outline-primary" data-toggle="modal" type="button" (click)="showRegisterModal()"> Join
+          now </button>
+      </div>
+      <div class="nav-item px-3">
+        <button class="btn btn-block btn-outline-primary" data-toggle="modal" type="button" (click)="showLoginModal()"> Login
+        </button>
+      </div>
     </div>
   </ul>
   <button appasidemenutoggler="" class="navbar-toggler d-lg-none" type="button" ng-reflect-breakpoint="">

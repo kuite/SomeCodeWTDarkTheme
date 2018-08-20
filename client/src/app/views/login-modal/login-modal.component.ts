@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef, Input } from '@angular/core';
 import { AuthService } from '../../services/auth-service';
 import { LoginModalService } from './login-modal.service';
 import { Subscription }   from 'rxjs';
@@ -9,9 +9,13 @@ import { Subscription }   from 'rxjs';
 })
 
 export class LoginModalComponent implements OnInit, AfterViewInit {
-  public loginUserModal;
-  public showButton;
-  showModalSub: Subscription;
+  public Username: string;
+  public Password: string;
+
+  public IsLoging = false;
+  public ErrorMessage = "";
+  private showModalSub: Subscription;
+  private hideModalButton: HTMLElement;
   
   constructor(private _rootNode: ElementRef, private authService: AuthService, private loginModalService: LoginModalService) { }
 
@@ -20,24 +24,33 @@ export class LoginModalComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    let showButton = this._rootNode.nativeElement.children[0];
-    let loginUserModal = this._rootNode.nativeElement.children[1];
+    let showModalButton = this._rootNode.nativeElement.children[0] as HTMLElement;
+    this.hideModalButton = this._rootNode.nativeElement.children[1] as HTMLElement;
 
-    this.showModalSub = this.loginModalService.showObservable$.subscribe(() => { showButton.click(); });
+    this.showModalSub = this.loginModalService.showObservable$.subscribe(() => { showModalButton.click(); });
   }
 
   login(){
     //show loading 
-    console.log('login-modal.component login');
-    this.authService.login().subscribe((response) => { 
+    this.IsLoging = true;
+    this.ErrorMessage = "";
+    this.authService.login(this.Username, this.Password).subscribe((response) => { 
         if (response == 'ok'){
           //close modal
-          console.log(response);
+          this.hideModalButton.click();
         }else{
-          //show error
-          console.log(response);
+          //wrong login/password or sth
+          this.ErrorMessage = response;
+          this.IsLoging = false;
         }
      });
+  }
+
+  onHideModal() {
+    this.IsLoging = false;
+    this.ErrorMessage = "";
+    this.Username = "";
+    this.Password = "";
   }
 
   ngOnDestroy() {

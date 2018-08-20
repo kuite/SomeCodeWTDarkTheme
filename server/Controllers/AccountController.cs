@@ -47,7 +47,7 @@ namespace webapi.Controllers
             }
             catch(Exception ex)
             {
-                return new BadRequestObjectResult(new ApiError(ex.Message));
+                return new BadRequestObjectResult("Wrong login or password.");
             }
 
             return Ok(response);

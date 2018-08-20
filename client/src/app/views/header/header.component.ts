@@ -12,7 +12,7 @@ import { Subscription }   from 'rxjs';
 export class HeaderComponent implements OnInit {
 
   private isLoggedSub: Subscription;
-  private IsLogged = false;
+  private IsLogged = true;
 
   constructor(
     private loginModalService: LoginModalService, 
@@ -23,22 +23,18 @@ export class HeaderComponent implements OnInit {
     this.isLoggedSub = this.authService.isLoggedObservable$.subscribe(
       () => { 
         this.IsLogged = this.authService.IsLogged(); 
-        console.log(this.authService.IsLogged);
       });
   }
 
   showLoginModal(){
-    console.log('skowLoginModal');
     this.loginModalService.show();
   }
 
   showRegisterModal(){
-    console.log('showRegisterModal');
     this.registerModalService.show();
   }
 
   ngOnDestroy() {
-    console.log('RegisterModalComponent ngOnDestroy');
     this.isLoggedSub.unsubscribe();
   }
 
