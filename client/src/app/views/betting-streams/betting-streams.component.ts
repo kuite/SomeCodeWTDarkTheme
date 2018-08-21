@@ -1,14 +1,27 @@
 import { Component } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   templateUrl: 'betting-streams.component.html'
 })
 export class BettingStreamsComponent {
 
-  constructor() { }
+  public VidUrl: SafeResourceUrl;
 
-  isCollapsed: boolean = false;
-  iconCollapse: string = "icon-arrow-up";
+  constructor(private _sanitizer: DomSanitizer) {
+    this.VidUrl = this._sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/JqPXMISUYYY");
+    console.log(this.VidUrl);
+  }
+
+  // kurwa(): SafeResourceUrl{
+  //   this.VidUrl = this._sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/watch?v=JqPXMISUYYY");
+  //   console.log(this.VidUrl);
+  //   return VidUrl;
+  // }
+  ngAfterViewInit() {
+
+  }
+
 
   collapsed(event: any): void {
     // console.log(event);
@@ -16,11 +29,6 @@ export class BettingStreamsComponent {
 
   expanded(event: any): void {
     // console.log(event);
-  }
-
-  toggleCollapse(): void {
-    this.isCollapsed = !this.isCollapsed;
-    this.iconCollapse = this.isCollapsed ? "icon-arrow-down" : "icon-arrow-up";
   }
 
 
