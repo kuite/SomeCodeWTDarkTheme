@@ -6,3 +6,14 @@
     overflow: hidden;
     outline:none;
 }
+
+.app-header {
+    //position: fixed;
+    top: 0;
+  }
+
+.dropdown-menu { 
+    //for prevent user-dropdown going behind right border
+    right: 0 !important; 
+    left: auto !important; 
+}

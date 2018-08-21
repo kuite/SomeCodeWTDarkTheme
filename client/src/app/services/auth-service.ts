@@ -22,6 +22,12 @@ export class AuthService {
   constructor(private http: HttpClient, private requests: RequestsHelper) { }
 
   IsLogged(): boolean {
+    if (!this._isLogged) {
+      let user = localStorage.getItem('userData');
+      if (user != null) {
+        this._isLogged = true;
+      }
+    }
     return this._isLogged;
   }
 
@@ -47,11 +53,7 @@ export class AuthService {
   }
 
   login(username: string, password: string): Observable<string> {
-    console.log("accountSvc.login start");
     return new Observable<string>((observer) => {
-      console.log("accountSvc.login inside observable");
-      //let login = "asdasd2@wp.pl";
-      //let password = "qwerty2";
       let loginVm = {
         Email: username,
         Password: password
@@ -72,7 +74,9 @@ export class AuthService {
   }
 
   logout() {
-
+    localStorage.removeItem('userData');
+    this._isLogged = false;
+    this._isLoggedSource.next();
   }
 
 }

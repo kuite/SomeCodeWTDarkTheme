@@ -27,7 +27,7 @@
               <i class="icon-lock"></i>
             </span>
           </div>
-          <input type="password" class="form-control" placeholder="Password" [(ngModel)]="Password">
+          <input type="password" class="form-control" (keyup.enter)="login()" placeholder="Password" [(ngModel)]="Password">
         </div>
         <button type="button" class="btn btn-large btn-success" (click)="login()">
           Login <i *ngIf="IsLoging" class="fa fa-spinner fa-spin "></i>
