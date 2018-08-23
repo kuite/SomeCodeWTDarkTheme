@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestsHelper } from '../../utils/requests-helper';
 import { urls } from '../../../environments/apiUrls';
-import { OpenChallenge } from '../../viewmodels/OpenChallenge';
+import { OpenChallenge } from '../../viewmodels/challenges/OpenChallenge';
+import 'rxjs/add/operator/map'
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -20,13 +22,12 @@ export class ChallengesComponent implements OnInit {
     { headerName: 'Created At', field: 'createdAt' }
   ];
 
+  private chellangesObervable: Observable<OpenChallenge[]>;
 
   public tableData = [];
-  // {name: 'Niall', role: 'Developer'},
-  // {name: 'Eamon', role: 'Manager'},
-  // {name: 'Brian', role: 'Musician'},
-  // {name: 'Kevin', role: 'Manager'}
-  constructor(private requests: RequestsHelper) { 
+
+  constructor(private requests: RequestsHelper) {
+    this.chellangesObervable = this.requests.get<OpenChallenge[]>(urls.GetOpenChallenges);
     this.FetchOpenChallenges();
   }
 
@@ -34,12 +35,10 @@ export class ChallengesComponent implements OnInit {
 
   }
 
-  FetchOpenChallenges(){
-    let challenges = this.requests.get(urls.GetOpenChallenges).subscribe(
-      (data: any) => {
-        console.log(JSON.parse(data));
-        this.tableData = JSON.parse(data);
-    });
+  FetchOpenChallenges() {
+    this.chellangesObervable.subscribe(
+      (data: OpenChallenge[]) => {
+        this.tableData = data;
+      });
   }
-
 }
