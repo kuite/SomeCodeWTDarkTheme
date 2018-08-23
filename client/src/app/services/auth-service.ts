@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { Observable } from "rxjs"
-import 'rxjs/add/operator/catch';
+//import 'rxjs/add/operator/catch';
 
 
-import { RequestsHelper } from '../utils/requests-helper'
+import { RequestsHelper } from '../utils/requests-helper';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +18,7 @@ export class AuthService {
   private loginUrl = "/account/login";
   private regUrl = "/account/RegisterUser"
 
-  constructor(private http: HttpClient, private requests: RequestsHelper) { }
+  constructor(private requests: RequestsHelper) { }
 
   IsLogged(): boolean {
     if (!this._isLogged) {

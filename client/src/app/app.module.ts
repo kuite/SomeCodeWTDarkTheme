@@ -42,6 +42,8 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown'; //for dropdowns 
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { AgGridModule } from 'ag-grid-angular';
+
 
 import { RegisterModalComponent } from './views/register-modal/register-modal.component';
 import { LoginModalComponent } from './views/login-modal/login-modal.component';
@@ -62,7 +64,8 @@ import { HeaderComponent } from './views/header/header.component';
     TabsModule.forRoot(),
     ChartsModule,
     ModalModule,
-    FormsModule
+    FormsModule,
+    //AgGridModule.withComponents([])
   ],
   declarations: [
     AppComponent,
@@ -78,6 +81,6 @@ import { HeaderComponent } from './views/header/header.component';
     provide: LocationStrategy,
     useClass: HashLocationStrategy
   }],
-  bootstrap: [ AppComponent ]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

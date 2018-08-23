@@ -79,10 +79,6 @@ export const routes: Routes = [
         loadChildren: './views/challenges/challenges.module#ChallengesModule'
       },
       {
-        path: 'betting',
-        loadChildren: './views/betting/betting.module#BettingModule'
-      },
-      {
         path: 'dashboard',
         loadChildren: './views/dashboard/dashboard.module#DashboardModule'
       },

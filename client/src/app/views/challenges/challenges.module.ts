@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
+import { AgGridModule } from 'ag-grid-angular';
+
 import { ChallengesComponent } from './challenges.component';
 import { ChallengesRoutingModule } from './challenges-routing.module';
 
@@ -10,7 +12,8 @@ import { ChallengesRoutingModule } from './challenges-routing.module';
 @NgModule({
   imports: [
     CommonModule,
-    ChallengesRoutingModule
+    ChallengesRoutingModule,
+    AgGridModule.withComponents([])
   ],
   declarations: [
     ChallengesComponent
