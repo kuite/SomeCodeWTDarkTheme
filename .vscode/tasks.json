@@ -13,10 +13,10 @@
         },
         {
             "label": "build client",
-            "command": "start ${workspaceFolder}/client/build_client.bat",
+            "command": "start ${workspaceFolder}\\client\\build_client.bat",
             "type": "shell",
             "args": [
-                "${workspaceFolder}"
+                "${workspaceFolder}\\client"
             ],
             "problemMatcher": "$msCompile"
         },
