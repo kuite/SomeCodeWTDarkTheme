@@ -4,6 +4,8 @@ import { urls } from '../../../environments/apiUrls';
 import { OpenChallenge } from '../../viewmodels/challenges/OpenChallenge';
 import 'rxjs/add/operator/map'
 import { Observable } from 'rxjs';
+import { GridOptions } from 'ag-grid';
+import 'ag-grid';
 
 
 @Component({
@@ -14,17 +16,19 @@ import { Observable } from 'rxjs';
 export class ChallengesComponent implements OnInit {
 
   columnDefs = [
-    { headerName: 'Category', field: 'category' },
-    { headerName: 'Winner reward', field: 'reward' },
-    { headerName: 'Buy-in', field: 'buyin' },
-    { headerName: 'Description', field: 'description' },
-    { headerName: 'Author', field: 'author' },
-    { headerName: 'Created At', field: 'createdAt' }
+    { headerName: 'Category', field: 'category', filter: 'agTextColumnFilter', suppressFilter: true},
+    { headerName: 'Winner reward', field: 'reward', filter: 'agNumberColumnFilter', suppressFilter: true},
+    { headerName: 'Buy-in', field: 'buyin', filter: 'agNumberColumnFilter', suppressFilter: true},
+    { headerName: 'Description', field: 'description', suppressFilter: true },
+    { headerName: 'Author', field: 'author', suppressFilter: true },
+    { headerName: 'Created At', field: 'createdAt', filter: 'agDateColumnFilter', suppressFilter: true}
   ];
-
-  private chellangesObervable: Observable<OpenChallenge[]>;
-
   public tableData = [];
+  public ErrorMessage = "";
+
+  private gridApi;
+  private gridOptions;
+  private chellangesObervable: Observable<OpenChallenge[]>;
 
   constructor(private requests: RequestsHelper) {
     this.chellangesObervable = this.requests.get<OpenChallenge[]>(urls.GetOpenChallenges);
@@ -35,7 +39,24 @@ export class ChallengesComponent implements OnInit {
 
   }
 
-  FetchOpenChallenges() {
+  applyFilter() {
+    var fm = this.gridApi.getFilterModel();
+    var categoryFilterComponent = this.gridApi.getFilterInstance('category');
+    //var categoryModel = categoryFilterComponent.getModel();
+    categoryFilterComponent.setModel({
+      type: 'contains',
+      filter: 'other'
+    });
+    //categoryFilterComponent.setFilter('other');
+    categoryFilterComponent.onFilterChanged();
+  }
+
+  onGridChallengesReady(params) {
+    this.gridApi = params.api;
+    this.gridOptions = params.api.gridCore.gridOptions;
+  }
+
+  private FetchOpenChallenges() {
     this.chellangesObervable.subscribe(
       (data: OpenChallenge[]) => {
         this.tableData = data;

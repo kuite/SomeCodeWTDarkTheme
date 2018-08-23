@@ -64,7 +64,7 @@ import { HeaderComponent } from './views/header/header.component';
     TabsModule.forRoot(),
     ChartsModule,
     ModalModule,
-    FormsModule,
+    FormsModule
     //AgGridModule.withComponents([])
   ],
   declarations: [
