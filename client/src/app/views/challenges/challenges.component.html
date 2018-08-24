@@ -1,7 +1,7 @@
 <div class="col-sm-6 col-md-6">
   <div class="card">
     <div class="card-body">
-      <button type="button" class="btn btn-primary pm-btn">
+      <button type="button" class="btn btn-primary pm-btn" (click)="showCreateForm()">
         <svg x="0px" y="0px" width="48" height="48" viewBox="0 0 512.002 512.002" style="enable-background:new 0 0 512.002 512.002;"
           xml:space="preserve">
           <g>
@@ -100,27 +100,100 @@
         Create Challenge
       </button>
       <div class="col-md-8 desc">
-      Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
-      aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl
-    </div>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
+        aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl
+      </div>
     </div>
   </div>
 </div>
 
-<form id="filterForm" class="form-group">
-  <label for="name">Category</label>
-  <input type="text" class="form-control col-md-1" name="category-filter" [(ngModel)]="CategoryFilter">
+<form *ngIf="DisplayCreateForm" id="createChallengeForm" class="col-md-6">
+  <div class="card">
+    <div class="card-body">
+      <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="select1">Category</label>
+          <div class="col-md-4">
+            <select id="select1" name="select1" class="form-control">
+              <option value="0">Please select</option>
+              <option value="1">LOL</option>
+              <option value="2">Fortnine</option>
+              <option value="3">CS:GO</option>
+              <option value="4">Hearthstone</option>
+              <option value="5">PB</option>
+              <option value="6">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label">Stake:</label>
+          <div class="col-md-9 col-form-label">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="radios" id="radio1" value="option1" checked>
+              <label class="form-check-label" for="radio1">
+                BitToken
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="radios" id="radio2" value="option2">
+              <label class="form-check-label" for="radio2">
+                VIPToken
+              </label>
+            </div>
+            <div class="form-row">
+              <div class="col-sm-3">
+                <label for="cvv">Your wager:</label>
+                <input class="form-control" type="number" min="0" id="wager" placeholder="100">
+              </div>
+              <div class="col-sm-3">
+                <label for="buyin" class="label-buyin">Buyin:</label>
+                <input class="form-control" type="number" min="0" id="buyin" placeholder="100">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="textarea-input">Description</label>
+          <div class="col-md-8">
+            <textarea id="textarea-input" name="textarea-input" rows="3" class="form-control" placeholder="Say what you are challenging about"></textarea>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label">Private:</label>
+          <div class="col-md-9 col-form-label">
+            <div class="form-check form-check-inline mr-1">
+              <input class="form-check-input" type="checkbox" id="inline-checkbox1" value="Private">
+              <label class="form-check-label" for="inline-checkbox1">Yes (Accept only from invite link)</label>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="card-footer">
+      <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+      <button type="reset" class="btn btn-sm btn-danger">Cancel</button>
+    </div>
+  </div>
+
 </form>
+
+
+
+<div class="form-row">
+  <div class="col-sm-1">
+    <label for="category-filter">Category:</label>
+    <input type="text" class="form-control" name="category-filter" [(ngModel)]="CategoryFilter">
+  </div>
+  <div class="col-sm-1">
+    <label for="buyin" class="label-buyin">Reward:</label>
+    <input class="form-control" type="number" min="0" id="buyin" placeholder="100">
+  </div>
+</div>
 <button type="button" class="btn btn-primary pm-btn" (click)="applyFilter()">
   Apply
 </button>
-
-<br/>
-
-<ag-grid-angular class="ag-theme-balham table-challenges" 
-[enableFilter]="true"
-[enableSorting]="true"
-[rowData]="tableData" 
-[columnDefs]="columnDefs"
-(gridReady)="onGridChallengesReady($event)">
+<ag-grid-angular class="ag-theme-balham table-challenges" [enableFilter]="true" [enableSorting]="true" [rowData]="tableData"
+  [columnDefs]="columnDefs" (gridReady)="onGridChallengesReady($event)">
 </ag-grid-angular>

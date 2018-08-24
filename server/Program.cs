@@ -25,6 +25,7 @@ namespace webapi
             .UseKestrel()
             .UseContentRoot(Directory.GetCurrentDirectory())
             .UseIISIntegration()
+            .UseUrls("http://localhost:50647/")
             .UseStartup<Startup>()
             .Build();
     }

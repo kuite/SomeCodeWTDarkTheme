@@ -15,14 +15,15 @@ import 'ag-grid';
 export class ChallengesComponent implements OnInit {
 
   columnDefs = [
-    { headerName: 'Category', field: 'category', filter: 'agTextColumnFilter', suppressFilter: true},
-    { headerName: 'Winner reward', field: 'reward', filter: 'agNumberColumnFilter', suppressFilter: true},
-    { headerName: 'Buy-in', field: 'buyin', filter: 'agNumberColumnFilter', suppressFilter: true},
+    { headerName: 'Category', field: 'category', filter: 'agTextColumnFilter', suppressFilter: true, width: 100 },
+    { headerName: 'Winner reward', field: 'reward', filter: 'agNumberColumnFilter', suppressFilter: true },
+    { headerName: 'Buy-in', field: 'buyin', filter: 'agNumberColumnFilter', suppressFilter: true },
     { headerName: 'Description', field: 'description', suppressFilter: true },
     { headerName: 'Author', field: 'author', suppressFilter: true },
-    { headerName: 'Created At', field: 'createdAt', filter: 'agDateColumnFilter', suppressFilter: true}
+    { headerName: 'Created', field: 'createdAt', filter: 'agDateColumnFilter', suppressFilter: true }
   ];
   public tableData = [];
+  public DisplayCreateForm = false;
   public CategoryFilter = "";
 
   private gridApi;
@@ -35,6 +36,10 @@ export class ChallengesComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+
+  showCreateForm() {
+    this.DisplayCreateForm = !this.DisplayCreateForm;
   }
 
   applyFilter() {

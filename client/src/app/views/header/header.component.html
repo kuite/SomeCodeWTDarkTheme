@@ -47,7 +47,7 @@
       </div>
     </div>
     
-    <div *ngIf="IsLogged == false" class="nav navbar-nav ml-auto">
+    <div *ngIf="!IsLogged" class="nav navbar-nav ml-auto">
       <div class="nav-item px-3">
         <button class="btn btn-block btn-outline-primary" data-toggle="modal" type="button" (click)="showRegisterModal()"> Join
           now </button>
