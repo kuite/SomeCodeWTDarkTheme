@@ -13,6 +13,7 @@ import { ChallengesRoutingModule } from './challenges-routing.module';
   imports: [
     CommonModule,
     ChallengesRoutingModule,
+    FormsModule,
     AgGridModule.withComponents([])
   ],
   declarations: [

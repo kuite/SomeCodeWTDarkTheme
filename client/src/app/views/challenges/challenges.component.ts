@@ -4,7 +4,6 @@ import { urls } from '../../../environments/apiUrls';
 import { OpenChallenge } from '../../viewmodels/challenges/OpenChallenge';
 import 'rxjs/add/operator/map'
 import { Observable } from 'rxjs';
-import { GridOptions } from 'ag-grid';
 import 'ag-grid';
 
 
@@ -24,10 +23,9 @@ export class ChallengesComponent implements OnInit {
     { headerName: 'Created At', field: 'createdAt', filter: 'agDateColumnFilter', suppressFilter: true}
   ];
   public tableData = [];
-  public ErrorMessage = "";
+  public CategoryFilter = "";
 
   private gridApi;
-  private gridOptions;
   private chellangesObervable: Observable<OpenChallenge[]>;
 
   constructor(private requests: RequestsHelper) {
@@ -40,20 +38,16 @@ export class ChallengesComponent implements OnInit {
   }
 
   applyFilter() {
-    var fm = this.gridApi.getFilterModel();
     var categoryFilterComponent = this.gridApi.getFilterInstance('category');
-    //var categoryModel = categoryFilterComponent.getModel();
     categoryFilterComponent.setModel({
       type: 'contains',
-      filter: 'other'
+      filter: this.CategoryFilter
     });
-    //categoryFilterComponent.setFilter('other');
     categoryFilterComponent.onFilterChanged();
   }
 
   onGridChallengesReady(params) {
     this.gridApi = params.api;
-    this.gridOptions = params.api.gridCore.gridOptions;
   }
 
   private FetchOpenChallenges() {

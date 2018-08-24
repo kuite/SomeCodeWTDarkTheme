@@ -1,4 +1,4 @@
-<div class="col-sm-6 col-md-8">
+<div class="col-sm-6 col-md-6">
   <div class="card">
     <div class="card-body">
       <button type="button" class="btn btn-primary pm-btn">
@@ -99,7 +99,7 @@
         </svg>
         Create Challenge
       </button>
-      <div class="col-md-8">
+      <div class="col-md-8 desc">
       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
       aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl
     </div>
@@ -107,6 +107,10 @@
   </div>
 </div>
 
+<form id="filterForm" class="form-group">
+  <label for="name">Category</label>
+  <input type="text" class="form-control col-md-1" name="category-filter" [(ngModel)]="CategoryFilter">
+</form>
 <button type="button" class="btn btn-primary pm-btn" (click)="applyFilter()">
   Apply
 </button>
