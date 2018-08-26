@@ -1,3 +1,8 @@
+<div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"
+    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0"
+    target="_blank">CC 3.0 BY</a></div>
+
+  
 <div class="col-sm-6 col-md-6">
   <div class="card">
     <div class="card-body">
@@ -143,11 +148,15 @@
             <div class="form-row">
               <div class="col-sm-3">
                 <label for="cvv">Your wager:</label>
-                <input class="form-control" type="number" min="0" id="wager" placeholder="100">
+                <input class="form-control" type="text" min="0" id="wager" placeholder="100">
               </div>
               <div class="col-sm-3">
                 <label for="buyin" class="label-buyin">Buyin:</label>
-                <input class="form-control" type="number" min="0" id="buyin" placeholder="100">
+                <input class="form-control" type="text" min="0" id="buyin" placeholder="100">
+              </div>
+              <div class="col-sm-3">
+                <label for="buyin" class="label-buyin">Winner reward:</label>
+                <input class="form-control" type="text" min="0" id="buyin" placeholder="200">
               </div>
             </div>
           </div>
@@ -180,20 +189,32 @@
 </form>
 
 
-
-<div class="form-row">
-  <div class="col-sm-1">
-    <label for="category-filter">Category:</label>
-    <input type="text" class="form-control" name="category-filter" [(ngModel)]="CategoryFilter">
+<div class="filters">
+  <div class="form-row">
+    <div class="col-sm-1">
+      <label for="category-filter">Category:</label>
+      <input type="text" class="form-control col-sm-10" name="category-filter" [(ngModel)]="CategoryFilter">
+    </div>
+    <div class="col-sm-1">
+      <label for="buyin" class="label-buyin">Reward:</label>
+      <div class="input-group-prepend" dropdown>
+        <input class="form-control col-sm-8" type="text" min="0" id="buyin">
+        <button type="button" class="btn btn-primary dropdown-toggle btn-sm" dropdownToggle>More than
+          <span class="caret"></span>
+        </button>
+        <div id="dropdown-compare" class="dropdown-menu col-sm-1" *dropdownMenu>
+          <a class="dropdown-item" href="#">Equals</a>
+          <a class="dropdown-item" href="#">Less than</a>
+          <a class="dropdown-item" href="#">More than</a>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col-sm-1">
-    <label for="buyin" class="label-buyin">Reward:</label>
-    <input class="form-control" type="number" min="0" id="buyin" placeholder="100">
-  </div>
+  <button type="button" class="btn btn-primary pm-btn apply-btn" (click)="applyFilter()">
+    Apply
+  </button>
 </div>
-<button type="button" class="btn btn-primary pm-btn" (click)="applyFilter()">
-  Apply
-</button>
+
 <ag-grid-angular class="ag-theme-balham table-challenges" [enableFilter]="true" [enableSorting]="true" [rowData]="tableData"
   [columnDefs]="columnDefs" (gridReady)="onGridChallengesReady($event)">
 </ag-grid-angular>

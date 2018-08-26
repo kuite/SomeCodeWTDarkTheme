@@ -13,6 +13,6 @@ namespace webapi.Model.Domain
         public string Description { get; set; }
         public string Author { get; set; }
         public string AuthorId{ get;set; }
-        public DateTimeOffset CreatedAt { get; set; }
+        public string CreatedAgo { get; set; }
     }
 }

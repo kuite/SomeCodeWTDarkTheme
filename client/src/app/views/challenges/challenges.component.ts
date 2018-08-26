@@ -20,7 +20,7 @@ export class ChallengesComponent implements OnInit {
     { headerName: 'Buy-in', field: 'buyin', filter: 'agNumberColumnFilter', suppressFilter: true },
     { headerName: 'Description', field: 'description', suppressFilter: true },
     { headerName: 'Author', field: 'author', suppressFilter: true },
-    { headerName: 'Created', field: 'createdAt', filter: 'agDateColumnFilter', suppressFilter: true }
+    { headerName: 'Created', field: 'createdAgo', filter: 'agDateColumnFilter', suppressFilter: true }
   ];
   public tableData = [];
   public DisplayCreateForm = false;

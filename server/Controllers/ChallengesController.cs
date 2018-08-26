@@ -53,7 +53,7 @@ namespace webapi.Controllers
                     Buyin = 50,
                     Description = "test1",
                     Author = "Roman",
-                    CreatedAt = DateTime.Now
+                    CreatedAgo = "2 hours"
                 },
                 new OpenChallenge
                 {
@@ -63,7 +63,7 @@ namespace webapi.Controllers
                     Buyin = 400,
                     Description = "test 22",
                     Author = "Viper",
-                    CreatedAt = DateTime.Now
+                    CreatedAgo = "5 hours"
                 },
                 new OpenChallenge
                 {
@@ -73,7 +73,7 @@ namespace webapi.Controllers
                     Buyin = 400,
                     Description = "test 33",
                     Author = "Roman",
-                    CreatedAt = DateTime.Now
+                    CreatedAgo = "2 days"
                 },
                 new OpenChallenge
                 {
@@ -83,7 +83,7 @@ namespace webapi.Controllers
                     Buyin = 400,
                     Description = "test4",
                     Author = "Viper",
-                    CreatedAt = DateTime.Now
+                    CreatedAgo = "5 days"
                 },
                 new OpenChallenge
                 {
@@ -93,7 +93,7 @@ namespace webapi.Controllers
                     Buyin = 80,
                     Description = "test 5",
                     Author = "Janusz",
-                    CreatedAt = DateTime.Now
+                    CreatedAgo = "6 days"
                 },
                 new OpenChallenge
                 {
@@ -103,7 +103,7 @@ namespace webapi.Controllers
                     Buyin = 100,
                     Description = "test666",
                     Author = "Cooler",
-                    CreatedAt = DateTime.Now
+                    CreatedAgo = "47 minutes"
                 }
             };
 
