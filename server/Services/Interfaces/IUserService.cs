@@ -9,7 +9,7 @@ namespace webapi.Services.Interfaces
 {
     public interface IUserService
     {
-        Task<IdentityResult> RegisterUserAsync(RegisterUserForm form);
-        Task<string> GetTokenAsync(LoginForm credentials);
+        Task<IdentityResult> RegisterUserAsync(RegisterUser form);
+        Task<User> LoginAsync(Login credentials);
     }
 }

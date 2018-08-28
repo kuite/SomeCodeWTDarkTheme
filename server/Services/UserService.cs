@@ -36,7 +36,7 @@ namespace webapi.Services
             _jwtOptions = jwtOptions.Value;
         }
 
-        public async Task<string> GetTokenAsync(LoginForm credentials)
+        public async Task<User> LoginAsync(Login credentials)
         {
             var identity = await GetClaimsIdentity(credentials.Email, credentials.Password);
 
@@ -49,10 +49,16 @@ namespace webapi.Services
                 _jwtOptions, 
                 new JsonSerializerSettings { Formatting = Formatting.Indented });
 
-            return jwt;
+            var gg = new User
+            {
+                UserName = credentials.Email,
+                Jwt = jwt
+            };
+
+            return gg;
         }
 
-        public async Task<IdentityResult> RegisterUserAsync(RegisterUserForm form)
+        public async Task<IdentityResult> RegisterUserAsync(RegisterUser form)
         {
             UserEntity userIdentity = _mapper.Map<UserEntity>(form);
             IdentityResult result = await _userManager.CreateAsync(userIdentity, form.Password);

@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit {
       () => {
         this.IsLogged = this.authService.IsLogged();
       });
-      //this.UserName = this.authService.Username;
+      this.UserName = this.authService.UserData.UserName;
   }
 
   showLoginModal() {

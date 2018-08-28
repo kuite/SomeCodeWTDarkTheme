@@ -5,12 +5,13 @@ import { Observable } from "rxjs"
 
 
 import { RequestsHelper } from '../utils/requests-helper';
+import { UserData } from '../viewmodels/account/UserData';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  public Username: string = "";
+  public UserData: UserData;
 
   private _isLoggedSource = new Subject();
   public isLoggedObservable$ = this._isLoggedSource.asObservable();
@@ -25,6 +26,8 @@ export class AuthService {
     if (!this._isLogged) {
       let user = localStorage.getItem('userData');
       if (user != null) {
+        
+        this.UserData = new UserData(user);
         this._isLogged = true;
       }
     }
@@ -59,11 +62,11 @@ export class AuthService {
         Password: password
       };
       let request = this.requests.post(this.loginUrl, loginVm);
-      //todo: load from api
-      this.Username = username;
+
       request.subscribe(
         (userData: any) => {
-          localStorage.setItem('userData', JSON.stringify(userData));
+          localStorage.setItem('userData', userData);
+          this.UserData = new UserData(userData);
           this._isLogged = true;
           this._isLoggedSource.next();
           observer.next('ok');

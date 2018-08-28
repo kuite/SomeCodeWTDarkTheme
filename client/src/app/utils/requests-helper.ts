@@ -17,6 +17,11 @@ export class RequestsHelper {
         return request;
     }
 
+    post2<T>(url, postObject): Observable<T> {
+        let request = this.http.post<T>(environment.apiUrl + url, postObject)
+        return request;
+    }
+
     post(url, postObject): Observable<any> {
         let request = this.http.post(environment.apiUrl + url, postObject, { responseType: 'text' })
         return request;

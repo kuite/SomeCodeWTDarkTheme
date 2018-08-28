@@ -3,14 +3,15 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using webapi.Infrastructure;
-using webapi.Model.Domain.Account;
-using webapi.Model.Common;
 using webapi.Services;
 using webapi.Services.Interfaces;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
+using webapi.Controllers.ViewModels.Account;
+using AutoMapper;
+using webapi.Model.Domain.Account;
 
 namespace webapi.Controllers
 {
@@ -18,17 +19,20 @@ namespace webapi.Controllers
     public class AccountController : ControllerBase
     {
         private readonly IUserService _userService;
+        private readonly IMapper _mapper;
 
-        public AccountController(IUserService userService)
+        public AccountController(IMapper mapper, IUserService userService)
         {
             _userService = userService;
+            _mapper = mapper;
         }
 
         [HttpPost("RegisterUser")]
         [ValidateModel]
         public async Task<IActionResult> RegisterUserAsync([FromBody]RegisterUserForm form)
         {
-            var result = await _userService.RegisterUserAsync(form);
+            var data = _mapper.Map<RegisterUser>(form);
+            var result = await _userService.RegisterUserAsync(data);
 
             if (!result.Succeeded) return new BadRequestObjectResult(new ApiError("something gone wrong"));
 
@@ -37,21 +41,26 @@ namespace webapi.Controllers
 
         [HttpPost("login")]
         [ValidateModel]
-        public async Task<IActionResult> Login([FromBody]LoginForm credentials)
+        public async Task<ActionResult<UserData>> Login([FromBody]LoginForm credentials)
         {
             Thread.Sleep(2000);
-            string response;
+            UserData response;
             try
             {
-                response = await _userService.GetTokenAsync(credentials);
+                var data = _mapper.Map<Login>(credentials);
+                var user = await _userService.LoginAsync(data);
+                response = new UserData
+                {
+                    UserName = user.UserName,
+                    Id = "asd2df", //user.Jwt.Id
+                };
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                return new BadRequestObjectResult("Wrong login or password.");
+                return new BadRequestObjectResult(new ApiError("Wrong login or password."));
             }
 
             return Ok(response);
-            //expires_in in [s]
         }
 
         [HttpGet("login2")]
@@ -67,7 +76,7 @@ namespace webapi.Controllers
         {
             return Ok(postedString);
         }
-        
+
         [HttpGet("servertext")]
         [ValidateModel]
         public async Task<string> Login4()

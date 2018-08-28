@@ -11,7 +11,7 @@ namespace webapi.Infrastructure
     {
         public DefaultAutomapperProfile()
         {
-            CreateMap<RegisterUserForm, UserEntity>(MemberList.Source)
+            CreateMap<RegisterUser, UserEntity>(MemberList.Source)
             .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.Email));
         }
     }

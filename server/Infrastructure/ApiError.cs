@@ -3,7 +3,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Newtonsoft.Json;
 
-namespace webapi.Model.Common
+namespace webapi.Infrastructure
 {
     public sealed class ApiError
     {

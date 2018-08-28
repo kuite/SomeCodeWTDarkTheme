@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using webapi.Auth;
+using webapi.Infrastructure;
 using webapi.Model.Common;
 using webapi.Model.Database.Access;
 
