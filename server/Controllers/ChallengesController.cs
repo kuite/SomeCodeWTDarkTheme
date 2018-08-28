@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using webapi.Infrastructure;
 using webapi.Model.Domain;
+using webapi.Model.Domain.Challenges;
 using webapi.Model.Common;
 using webapi.Services;
 using webapi.Services.Interfaces;
@@ -35,7 +36,7 @@ namespace webapi.Controllers
 
         [HttpGet("GetOpenChallenges")]
         [ValidateModel]
-        public async Task<List<OpenChallenge>> GetAllOpenChallangesAsync(
+        public async Task<List<OpenChallenge>> GetAllOpenChallengesAsync(
             [FromQuery] PagingOptions pagingOptions)
         {
             pagingOptions.Offset = pagingOptions.Offset ?? _defaultPagingOptions.Offset;
@@ -111,12 +112,3 @@ namespace webapi.Controllers
         }
     }
 }
-
-
-        // public string Category { get; set; }
-        // public string Currency{ get;set; }
-        // public decimal Reward{ get;set; }
-        // public decimal Buyin { get;set; }
-        // public string Description { get; set; }
-        // public string Author { get; set; }
-        // public DateTimeOffset CreatedAt { get; set; }

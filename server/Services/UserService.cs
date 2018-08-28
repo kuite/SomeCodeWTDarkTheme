@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using AutoMapper;
 using System.Threading.Tasks;
-using webapi.Model.Domain;
+using webapi.Model.Domain.Account;
 using webapi.Auth;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;

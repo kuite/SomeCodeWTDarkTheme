@@ -1,6 +1,6 @@
 using System;
 
-namespace webapi.Model.Domain
+namespace webapi.Model.Domain.Account
 {
     public class LoginForm
     {

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 
-namespace webapi.Model.Domain
+namespace webapi.Model.Domain.Challenges
 {
     public class OpenChallenge
     {

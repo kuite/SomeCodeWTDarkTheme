@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using webapi.Infrastructure;
-using webapi.Model.Domain;
+using webapi.Model.Domain.Account;
 using webapi.Model.Common;
 using webapi.Services;
 using webapi.Services.Interfaces;

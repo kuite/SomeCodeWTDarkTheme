@@ -1,37 +1,25 @@
-<header class="app-header navbar">
-  <button appsidebartoggler="" class="navbar-toggler d-lg-none" type="button" ng-reflect-breakpoint="">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <a class="navbar-brand" href="#">
-    <img class="navbar-brand-full" src="assets/img/brand/logo.svg" width="89" height="25" alt="CoreUI Logo2">
-    <img class="navbar-brand-minimized" src="assets/img/brand/sygnet.svg" width="30" height="30" alt="CoreUI Logo3">
-  </a>
+<header class="app-header">
   <ul class="navbar-nav">
-    <li class="nav-item px-3">
-      <a class="nav-link" href="#/home">Home</a>
-    </li>
-    <li class="nav-item px-3">
-      <a class="btn btn-block btn-outline-success" href="#/betting-streams">betting streams</a>
-    </li>
-    <li class="nav-item px-3">
-      <a class="nav-link" href="#/challenges">challenges</a>
-    </li>
-    <li class="nav-item px-3">
-      <a class="nav-link" href="#/games">Inhouse games</a>
-    </li>
+      <img class="navbar-brand-full" src="assets/img/brand/logo.svg" width="89" height="25" alt="CoreUI Logo2">
+      <a class="link-feature" href="#/home">Home</a>
+      <a class="btn btn-block btn-outline-success link-feature" href="#/betting-streams">Betting Streams</a>
+      <a class="btn btn-block btn-outline-success link-feature" href="#/challenges">Challenges</a>
+      <a class="link-feature" href="#/games">Casino</a>
   </ul>
-  <ul class="nav navbar-nav ml-auto">
-    <div *ngIf="IsLogged" class="nav navbar-nav ml-auto">
+  <ul class="nav ml-auto">
+    <div *ngIf="IsLogged" class="nav ml-auto">
       <button id="bell-btn" class="button-header">
         <i class="fa fa-bell-o fa-lg" style="position: center;"></i>
       </button>
-      <div class="btn-group" dropdown> 
+      <div class="nickname-dropdown" dropdown> 
         <button dropdownToggle id="btn-acc" class="button-header">
           <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"
             />
             <path d="M0 0h24v24H0z" fill="none" />
           </svg>
+          <p class="nickname">{{UserName}}</p>
+          <i class="fa fa-chevron-down fa-lg arrow-down"></i>
         </button>
         <ul *dropdownMenu id="profile-dropdown" class="dropdown-menu" role="menu"> 
           <li role="menuitem"><a class="dropdown-item" href="#">Profile</a></li>
@@ -58,7 +46,56 @@
       </div>
     </div>
   </ul>
-  <button appasidemenutoggler="" class="navbar-toggler d-lg-none" type="button" ng-reflect-breakpoint="">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 </header>
+
+<header class="app-header-mobile">
+    <i class="fa fa-navicon fa-lg dropdown-mobile"></i>
+    <a class="navbar-brand" href="#">
+      <img class="navbar-brand-minimized" src="assets/img/brand/sygnet.svg" width="30" height="30" alt="CoreUI Logo3">
+    </a>
+    <ul class="navbar-nav">
+        <!-- <a class="link-feature" href="#/home">Home</a>
+        <a class="btn btn-block btn-outline-success link-feature" href="#/betting-streams">Betting Streams</a>
+        <a class="btn btn-block btn-outline-success link-feature" href="#/challenges">Challenges</a>
+        <a class="link-feature" href="#/games">Casino</a> -->
+    </ul>
+    <div class="navbar-right-mobile">
+      <div *ngIf="IsLogged">
+        <button id="bell-btn" class="button-header">
+          <i class="fa fa-bell-o fa-lg" style="position: center;"></i>
+        </button>
+        <div class="nickname-dropdown-mobile" dropdown> 
+          <button dropdownToggle id="btn-acc" class="button-header">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"
+              />
+              <path d="M0 0h24v24H0z" fill="none" />
+            </svg>
+            <i class="fa fa-chevron-down fa-lg arrow-down"></i>
+          </button>
+          <ul *dropdownMenu id="profile-dropdown-mobile" class="dropdown-menu" role="menu"> 
+            <li role="menuitem"><a class="dropdown-item" href="#">Profile</a></li>
+            <li role="menuitem"><a class="dropdown-item" href="#">Inbox</a></li>
+            <li role="menuitem"><a class="dropdown-item" href="#">Wallet $$</a></li>
+            <li class="divider dropdown-divider"></li>
+            <li role="menuitem" (click)="logout()">
+              <a class="dropdown-item" href="#">
+                <i class="fa fa-power-off fa-lg"></i>Sign out
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div *ngIf="!IsLogged" class="nav navbar-nav ml-auto">
+        <div class="nav-item px-3">
+          <button class="btn btn-block btn-outline-primary" data-toggle="modal" type="button" (click)="showRegisterModal()"> Join
+            now </button>
+        </div>
+        <div class="nav-item px-3">
+          <button class="btn btn-block btn-outline-primary" data-toggle="modal" type="button" (click)="showLoginModal()"> Login
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>

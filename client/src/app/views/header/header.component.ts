@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
 
   private isLoggedSub: Subscription;
   private IsLogged = false;
+  public UserName = "ddeert sdfds r35";
 
   constructor(
     private loginModalService: LoginModalService,
@@ -26,6 +27,7 @@ export class HeaderComponent implements OnInit {
       () => {
         this.IsLogged = this.authService.IsLogged();
       });
+      //this.UserName = this.authService.Username;
   }
 
   showLoginModal() {

@@ -2,7 +2,7 @@
 using webapi.Controllers;
 using webapi.Model;
 using webapi.Model.Common;
-using webapi.Model.Domain;
+using webapi.Model.Domain.Account;
 using webapi.Model.Database;
 
 namespace webapi.Infrastructure

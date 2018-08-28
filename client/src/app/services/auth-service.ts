@@ -10,6 +10,7 @@ import { RequestsHelper } from '../utils/requests-helper';
   providedIn: 'root',
 })
 export class AuthService {
+  public Username: string = "";
 
   private _isLoggedSource = new Subject();
   public isLoggedObservable$ = this._isLoggedSource.asObservable();
@@ -58,7 +59,8 @@ export class AuthService {
         Password: password
       };
       let request = this.requests.post(this.loginUrl, loginVm);
-
+      //todo: load from api
+      this.Username = username;
       request.subscribe(
         (userData: any) => {
           localStorage.setItem('userData', JSON.stringify(userData));
