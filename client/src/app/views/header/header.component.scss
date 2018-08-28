@@ -47,7 +47,7 @@
 /*#region Mobile*/
 
 .app-header-mobile {
-    position: flex; 
+    position: fixed; 
     top: 0; /* Position the navbar at the top of the page */
     width: 100%; /* Full width */
     z-index: 1000;
@@ -60,32 +60,74 @@
     background-color: #fff;
     border-bottom: 1px solid #c8ced3;
 }
+.hamburger-btn-mobile {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
 .nickname-dropdown-mobile {
     display: inline;
 }
-
+.navigation-dropdown-mobile{
+    display: block;
+    margin-top: 50px;
+}
 .dropdown-mobile {
     margin: 10px;
 }
-.navbar-right-mobile{
+.usermenu-right-mobile {
     cursor: pointer;
     margin-left: auto;
 }
-.navbar-left-mobile {
-    display: block;
-    margin-top:200px;
-    margin-left: 0px;
-    padding-left: 0;
-    margin-bottom: 0;
-    list-style: none;
+.btn-hamburger-mobile {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    margin: 7px;
+}
+.navigation-dropdown-class-noused {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    float: left;
+    min-width: 10rem;
+    padding: 0 0;
+    margin: 0.125rem 0 0;
+    font-size: 0.875rem;
+    color: #23282c;
     text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #c8ced3;
+    border-radius: 0.25rem;
+}
+
+.nav-dropdown-el-mobile {
+    display: block;
+    width: 100%;
+    padding: 0.25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #23282c;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
 }
 
 
 /*#endregion Mobile*/
 
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 799px) {
     .app-header {
         display: none !important;
     }
@@ -94,7 +136,7 @@
     }
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 799px) {
     .app-header {
         display: flex;
     }
@@ -103,7 +145,7 @@
     }
 }
 
-#profile-dropdown { 
+#profile-dropdown, #profile-dropdown-mobile { 
     //for prevent profile-dropdown going behind right border
     right: 0 !important; 
     left: auto !important; 
